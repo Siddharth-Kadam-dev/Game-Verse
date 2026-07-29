@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: black;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.main {
+    background-image: url(/assets/images/bg.jpg);
+    min-height: 70vh;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+}
+
+.main .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .64;
+    height: 70vh;
+}
+
+nav {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+nav img {
+    width: 150px;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav button {
+    position: relative;
+    z-index: 10;
+}
+
+.hero {
+    position: relative;
+    z-index: 10;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero>:nth-child(1) {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero>:nth-child(2) {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 500;
+}
+
+.hero>:nth-child(3) {
+    font-size: 1rem;
+}
+
+.separation {
+    height: 7px;
+    background: #2e2c2c;
+    position: relative;
+    z-index: 20;
+}
+
+.btn {
+    padding: 8px 20px;
+    background: rgba(248, 243, 243, .05);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, .15);
+}
+
+.btn-red {
+    background: red;
+    color: #fff;
+    padding: 14px 24px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.btn-red:hover {
+    background: #c11119;
+}
+
+.main input {
+    width: 360px;
+    max-width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(23, 23, 23, .7);
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 4px;
+    outline: none;
+}
+
+.main input::placeholder {
+    color: #ccc;
+}
+
+.btn-red-sm {
+    background: red;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-red-sm:hover {
+    background: #c11119;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.first {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    color: #fff;
+}
+
+.first>div {
+    flex: 1;
+}
+
+.secImg {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secImg img {
+    width: 100%;
+    max-width: 555px;
+    position: relative;
+    z-index: 2;
+}
+
+.secImg video {
+    position: absolute;
+    width: 73%;
+    top: 20%;
+    left: 13%;
+    z-index: 1;
+}
+
+section.first>div {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+section.first>div :nth-child(1) {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+section.first>div :nth-child(2) {
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+.faq {
+    background: #000;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.faqbox {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 24px;
+    background: #2d2d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.faqbox:hover {
+    background: #414141;
+}
+
+.faqbox svg {
+    filter: invert(1);
+}
+
+.faqbox {
+    transition: 0.3s ease;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background: #2d2d2d;
+    width: 100%;
+    max-width: 900px;
+    margin: 12px auto;
+    cursor: pointer;
+}
+
+.heronew {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.heronew>:nth-child(3) {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 900px;
+}
+
+.new input {
+    width: 360px;
+    max-width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 4px;
+    background: rgba(23, 23, 23, .7);
+    outline: none;
+}
+
+footer {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+    color: white;
+}
+
+footer .questions {
+    margin-bottom: 35px;
+}
+
+.question {
+    padding-top: 30px;
+    padding-left: clamp(20px, 5vw, 80px);
+    margin-bottom: 35px;
+    color: white;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px) {
+
+    .first {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .second {
+        flex-direction: column-reverse;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons input,
+    .hero-buttons button {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+
+    .footer-item {
+        align-items: center;
+    }
+
+    section.first>div :nth-child(1) {
+        font-size: 38px;
+    }
+
+    section.first>div :nth-child(2) {
+        font-size: 20px;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:600px) {
+
+    nav {
+        width: 95%;
+        height: 80px;
+    }
+
+    nav img {
+        width: 110px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .btn-red-sm {
+        padding: 6px 14px;
+        font-size: 13px;
+        margin-left: 0;
+    }
+
+    .hero {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .hero>:nth-child(1) {
+        font-size: 32px;
+    }
+
+    .hero>:nth-child(2) {
+        font-size: 18px;
+    }
+
+    .hero>:nth-child(3) {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons input,
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    section.first {
+        padding: 40px 0;
+    }
+
+    section.first>div :nth-child(1) {
+        font-size: 30px;
+    }
+
+    section.first>div :nth-child(2) {
+        font-size: 18px;
+    }
+
+    .secImg img {
+        max-width: 320px;
+    }
+
+    .secImg video {
+        width: 73%;
+        top: 20%;
+        left: 13%;
+    }
+
+    .faq {
+        padding: 40px 15px;
+    }
+
+    .faq h2 {
+        font-size: 28px;
+    }
+
+    .faqbox {
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .heronew {
+        padding: 40px 15px;
+    }
+
+    .new input {
+        width: 100%;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-item {
+        align-items: center;
+    }
+}

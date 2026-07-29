@@ -18,7 +18,7 @@ img {
 }
 
 .main {
-    background-image: url(/assets/images/bg.jpg);
+    background-image: url(bg.jpg);
     min-height: 70vh;
     position: relative;
     background-position: center;

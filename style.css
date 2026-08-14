@@ -18,7 +18,7 @@ img {
 }
 
 .main {
-    background-image: url(bg.jpg);
+    background-image: url(bg\ \(2\).png);
     min-height: 70vh;
     position: relative;
     background-position: center;
@@ -343,6 +343,21 @@ footer .questions {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 0.75rem; /* 12px */
+  color: #ffffff; /* Neutral muted gray */
+  font-family: 'Poppins', 'Inter', sans-serif;
+  letter-spacing: 0.025em;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer-copyright .brand-name {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* ===========================

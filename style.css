@@ -8,7 +8,8 @@
 }
 
 body {
-    background: black;
+    background: #000;
+    color: #fff;
     overflow-x: hidden;
 }
 
@@ -17,14 +18,15 @@ img {
     display: block;
 }
 
+/* Base Main & Overlay */
 .main {
-    background-image: url(bg\ \(2\).png);
+    background-image: url('bg (2).png');
+    /* min-height: 70vh; */
     min-height: 70vh;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
 }
 
 .main .box {
@@ -33,11 +35,13 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: black;
-    opacity: .64;
-    height: 70vh;
+    background: #000;
+    opacity: 0.64;
 }
 
+/* ==========================================
+   NAVBAR, SEARCH & LOGIN (DESKTOP DEFAULT)
+   ========================================== */
 nav {
     width: 90%;
     max-width: 1200px;
@@ -48,50 +52,180 @@ nav {
     align-items: center;
     position: relative;
     z-index: 10;
+    gap: 15px;
 }
 
 nav img {
-    width: 150px;
+    width: 160px;
 }
 
-nav div {
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.navbar a:hover {
+    color: #FF0000;
+}
+
+/* Search Box Fix */
+.search-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    padding: 4px 12px;
+    width: 230px;
+    transition: all 0.3s ease;
 }
 
-nav button {
+.search-box:focus-within {
+    border-color: #FF0000;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Inner Input Reset */
+.main .search-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 0;
+}
+
+.main .search-box input::placeholder {
+    color: #ccc;
+}
+
+.search-box button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Login Button Base */
+.btn-red-sm {
+    background: #FF0000;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-red-sm:hover {
+    background: #c11119;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
     position: relative;
-    z-index: 10;
+    z-index: 10002;
 }
 
+/* ==========================================
+   HERO & GENERAL COMPONENTS
+   ========================================== */
 .hero {
     position: relative;
     z-index: 10;
-    height: calc(100% - 90px);
+    min-height: calc(70vh - 90px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    color: white;
+    color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-.hero>:nth-child(1) {
+.hero > :nth-child(1) {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     line-height: 1.2;
 }
 
-.hero>:nth-child(2) {
+.hero > :nth-child(2) {
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 500;
 }
 
-.hero>:nth-child(3) {
+.hero > :nth-child(3) {
     font-size: 1rem;
+    color: #ddd;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.main input, .new input {
+    width: 360px;
+    max-width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(23, 23, 23, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    outline: none;
+}
+
+.main input::placeholder {
+    color: #ccc;
+}
+
+.btn-red {
+    background: #FF0000;
+    color: #fff;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-red:hover {
+    background: #c11119;
 }
 
 .separation {
@@ -101,77 +235,7 @@ nav button {
     z-index: 20;
 }
 
-.btn {
-    padding: 8px 20px;
-    background: rgba(248, 243, 243, .05);
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: .3s;
-}
-
-.btn:hover {
-    background: rgba(255, 255, 255, .15);
-}
-
-.btn-red {
-    background: red;
-    color: #fff;
-    padding: 14px 24px;
-    font-size: 20px;
-    font-weight: 500;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: .3s;
-    white-space: nowrap;
-}
-
-.btn-red:hover {
-    background: #c11119;
-}
-
-.main input {
-    width: 360px;
-    max-width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    color: #fff;
-    background: rgba(23, 23, 23, .7);
-    border: 1px solid rgba(255, 255, 255, .5);
-    border-radius: 4px;
-    outline: none;
-}
-
-.main input::placeholder {
-    color: #ccc;
-}
-
-.btn-red-sm {
-    background: red;
-    color: #fff;
-    padding: 8px 18px;
-    font-size: 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.btn-red-sm:hover {
-    background: #c11119;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
+/* Feature Sections */
 .first {
     width: 90%;
     max-width: 1200px;
@@ -184,8 +248,24 @@ nav button {
     color: #fff;
 }
 
-.first>div {
+.first > div {
     flex: 1;
+}
+
+section.first > div {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+section.first > div :nth-child(1) {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+section.first > div :nth-child(2) {
+    font-size: 24px;
+    line-height: 1.6;
 }
 
 .secImg {
@@ -211,22 +291,7 @@ nav button {
     z-index: 1;
 }
 
-section.first>div {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-section.first>div :nth-child(1) {
-    font-size: 48px;
-    font-weight: 700;
-}
-
-section.first>div :nth-child(2) {
-    font-size: 24px;
-    line-height: 1.6;
-}
-
+/* FAQ Section */
 .faq {
     background: #000;
     color: #fff;
@@ -242,15 +307,15 @@ section.first>div :nth-child(2) {
 .faqbox {
     width: 100%;
     max-width: 900px;
-    margin: 10px auto;
+    margin: 12px auto;
     padding: 24px;
     background: #2d2d2d;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s ease;
 }
 
 .faqbox:hover {
@@ -259,20 +324,8 @@ section.first>div :nth-child(2) {
 
 .faqbox svg {
     filter: invert(1);
-}
-
-.faqbox {
-    transition: 0.3s ease;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px;
-    background: #2d2d2d;
-    width: 100%;
-    max-width: 900px;
-    margin: 12px auto;
-    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 10px;
 }
 
 .heronew {
@@ -286,41 +339,23 @@ section.first>div :nth-child(2) {
     padding: 60px 20px;
 }
 
-.heronew>:nth-child(3) {
+.heronew > :nth-child(3) {
     font-size: 16px;
     line-height: 1.7;
     max-width: 900px;
 }
 
-.new input {
-    width: 360px;
-    max-width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, .5);
-    border-radius: 4px;
-    background: rgba(23, 23, 23, .7);
-    outline: none;
-}
-
+/* Footer Section */
 footer {
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    padding: 60px 0;
+    padding: 60px 0 30px;
     color: white;
 }
 
 footer .questions {
     margin-bottom: 35px;
-}
-
-.question {
-    padding-top: 30px;
-    padding-left: clamp(20px, 5vw, 80px);
-    margin-bottom: 35px;
-    color: white;
 }
 
 .footer {
@@ -346,33 +381,69 @@ footer .questions {
 }
 
 .footer-copyright {
-  font-size: 0.75rem; /* 12px */
-  color: #ffffff; /* Neutral muted gray */
-  font-family: 'Poppins', 'Inter', sans-serif;
-  letter-spacing: 0.025em;
-  margin: 0;
-  text-align: center;
-  padding-bottom: 20px;
+    font-size: 0.75rem;
+    color: #ffffff;
+    letter-spacing: 0.025em;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .footer-copyright .brand-name {
-  color: #ffffff;
-  font-weight: 600;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-/* ===========================
-   Tablet
-=========================== */
+/* ==========================================
+   TABLET BREAKPOINT (max-width: 992px)
+   ========================================== */
+@media (max-width: 992px) {
+    nav {
+        width: 92%;
+        gap: 10px;
+    }
 
-@media (max-width:992px) {
+    nav img {
+        width: 140px;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .search-box {
+        width: 180px;
+        padding: 2px 8px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .btn-red-sm {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
 
     .first {
         flex-direction: column;
         text-align: center;
+        padding: 40px 0;
     }
 
     .second {
         flex-direction: column-reverse;
+    }
+
+    section.first > div :nth-child(1) {
+        font-size: 36px;
+    }
+
+    section.first > div :nth-child(2) {
+        font-size: 18px;
     }
 
     .hero-buttons {
@@ -393,90 +464,113 @@ footer .questions {
     .footer-item {
         align-items: center;
     }
-
-    section.first>div :nth-child(1) {
-        font-size: 38px;
-    }
-
-    section.first>div :nth-child(2) {
-        font-size: 20px;
-    }
-
 }
 
-/* ===========================
-   Mobile
-=========================== */
-
-@media (max-width:600px) {
-
+/* ==========================================
+   MOBILE BREAKPOINT (max-width: 600px)
+   ========================================== */
+@media (max-width: 600px) {
     nav {
-        width: 95%;
-        height: 80px;
+        width: 92%;
+        height: 75px;
+        justify-content: space-between;
     }
 
     nav img {
         width: 110px;
     }
 
-    .btn {
-        padding: 6px 12px;
-        font-size: 13px;
+  
+
+    /* Top bar layout on mobile */
+    .search-box {
+        width: 120px;
+        padding: 2px 6px;
+    }
+
+    .search-box input {
+        padding: 4px;
+        font-size: 12px;
+    }
+
+    .search-box input::placeholder {
+        font-size: 11px;
     }
 
     .btn-red-sm {
-        padding: 6px 14px;
-        font-size: 13px;
-        margin-left: 0;
+        padding: 6px 10px;
+        font-size: 12px;
     }
 
-    .hero {
-        padding: 20px;
-        gap: 16px;
+    .hamburger {
+        display: block;
     }
 
-    .hero>:nth-child(1) {
-        font-size: 32px;
-    }
-
-    .hero>:nth-child(2) {
-        font-size: 18px;
-    }
-
-    .hero>:nth-child(3) {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
+    /* Mobile Side Navigation Drawer */
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #111;
+        display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 90px 30px 30px;
+        gap: 25px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10001;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        font-size: 18px;
         width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+    }
+
+    /* Content Scaling */
+    .hero {
+        padding: 30px 15px;
+        
+        gap: 15px;
+    }
+
+    .hero > :nth-child(1) {
+        font-size: 26px;
+    }
+
+    .hero > :nth-child(2) {
+        font-size: 16px;
+    }
+
+    .hero > :nth-child(3) {
+        font-size: 13px;
     }
 
     .hero-buttons input,
     .hero-buttons button {
         width: 100%;
-    }
-
-    section.first {
-        padding: 40px 0;
-    }
-
-    section.first>div :nth-child(1) {
-        font-size: 30px;
-    }
-
-    section.first>div :nth-child(2) {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .secImg img {
         max-width: 320px;
     }
 
-    .secImg video {
-        width: 73%;
-        top: 20%;
-        left: 13%;
+    section.first > div :nth-child(1) {
+        font-size: 26px;
+    }
+
+    section.first > div :nth-child(2) {
+        font-size: 15px;
     }
 
     .faq {
@@ -484,28 +578,16 @@ footer .questions {
     }
 
     .faq h2 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .faqbox {
-        font-size: 18px;
-        padding: 18px;
-    }
-
-    .heronew {
-        padding: 40px 15px;
-    }
-
-    .new input {
-        width: 100%;
+        font-size: 16px;
+        padding: 16px;
     }
 
     .footer {
         grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-item {
-        align-items: center;
+        gap: 25px;
     }
 }

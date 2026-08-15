@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Streaming UI Clone</title>
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,9 +21,24 @@
             <span>
                 <img width="60" src="/logo.png" alt="">
             </span>
+            <div class="navbar">
+                <a href="#home">Home</a>
+                <a href="#games">Games</a>
+                <a href="#checker">Compatibility</a>
+                <a href="#tornaments">Tornaments</a>
+
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search games...">
+                <button id="searchBtn"></button>
+            </div>
+
             <div>
                 <button class="btn-red-sm">Login</button>
             </div>
+
+            <button class="hamburger">☰</button>
         </nav>
         <div class="box"></div>
         <div class="hero">
@@ -39,8 +55,9 @@
 
 
         </div>
-        <div class="separation"></div>
+        <!-- <div class="separation"></div> -->
     </div>
+
 
     <section class="first">
         <div>
@@ -219,7 +236,7 @@
     </div>
 
 
-
+    <script src="script.js"></script>
 </body>
 
 </html>

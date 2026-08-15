@@ -90,10 +90,10 @@ nav img {
     transition: all 0.3s ease;
 }
 
-.search-box:focus-within {
+/* .search-box:focus-within {
     border-color: #FF0000;
     background: rgba(0, 0, 0, 0.5);
-}
+} */
 
 /* Inner Input Reset */
 .main .search-box input {
@@ -210,6 +210,12 @@ nav img {
 .main input::placeholder {
     color: #ccc;
 }
+
+.main input:focus-within {
+    border-color: #FF0000;
+    background: rgba(0, 0, 0, 0.5);
+}
+
 
 .btn-red {
     background: #FF0000;

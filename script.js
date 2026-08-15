@@ -3,8 +3,13 @@ const navbar = document.querySelector(".navbar");
 
 hamburger.addEventListener("click", () => {
     navbar.classList.toggle("active");
-});
 
+    if (navbar.classList.contains("active")) {
+        hamburger.innerHTML = "×";
+    } else {
+        hamburger.innerHTML = "☰";
+    }
+});
 // searching
 
 const searchInput = document.getElementById("searchInput");

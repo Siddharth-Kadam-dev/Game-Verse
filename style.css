@@ -10,6 +10,7 @@
 body {
     background: #000;
     color: #fff;
+    /* width: 100%; */
     overflow-x: hidden;
 }
 
@@ -27,6 +28,7 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* height: auto; */
 }
 
 .main .box {
@@ -90,10 +92,10 @@ nav img {
     transition: all 0.3s ease;
 }
 
-/* .search-box:focus-within {
+.search-box:focus-within {
     border-color: #FF0000;
     background: rgba(0, 0, 0, 0.5);
-} */
+}
 
 /* Inner Input Reset */
 .main .search-box input {
@@ -211,10 +213,6 @@ nav img {
     color: #ccc;
 }
 
-.main input:focus-within {
-    border-color: #FF0000;
-    background: rgba(0, 0, 0, 0.5);
-}
 
 
 .btn-red {
@@ -476,17 +474,21 @@ footer .questions {
    MOBILE BREAKPOINT (max-width: 600px)
    ========================================== */
 @media (max-width: 600px) {
+
     nav {
         width: 92%;
         height: 75px;
         justify-content: space-between;
+
+        /* FIX: navbar content ke upar rahe */
+        position: relative;
+        z-index: 10000;
     }
 
     nav img {
         width: 110px;
     }
 
-  
 
     /* Top bar layout on mobile */
     .search-box {
@@ -508,45 +510,91 @@ footer .questions {
         font-size: 12px;
     }
 
-    .hamburger {
-        display: block;
-    }
 
-    /* Mobile Side Navigation Drawer */
+    /* Hamburger */
+.hamburger {
+    display: block;
+    position: relative;
+    z-index: 10005;
+
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+    /* ==========================================
+       Mobile Side Navigation Drawer
+       ========================================== */
+
     .navbar {
         position: fixed;
+
         top: 0;
         right: -100%;
+
         width: 250px;
         height: 100vh;
-        background: #111;
+
+        /* IMPORTANT: fully solid background */
+        background: #111111;
+        opacity: 1;
+
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+
         padding: 90px 30px 30px;
         gap: 25px;
+
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 10001;
+
+        /* IMPORTANT: menu text/content ke upar */
+        z-index: 10004;
+
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+
+        /* Prevent content from going outside */
+        box-sizing: border-box;
+        overflow-y: auto;
     }
 
+
+    /* Menu OPEN */
     .navbar.active {
         right: 0;
     }
 
+
     .navbar a {
         font-size: 18px;
         width: 100%;
+
+        color: white;
+        text-decoration: none;
+
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding-bottom: 10px;
+
+        position: relative;
+        z-index: 10005;
     }
 
-    /* Content Scaling */
+
+    /* ==========================================
+       Content Scaling
+       ========================================== */
+
     .hero {
         padding: 30px 15px;
-        
         gap: 15px;
+
+        /* Hero menu ke neeche rahe */
+        position: relative;
+        z-index: 10;
     }
 
     .hero > :nth-child(1) {
@@ -567,9 +615,11 @@ footer .questions {
         font-size: 16px;
     }
 
+
     .secImg img {
         max-width: 320px;
     }
+
 
     section.first > div :nth-child(1) {
         font-size: 26px;
@@ -578,6 +628,11 @@ footer .questions {
     section.first > div :nth-child(2) {
         font-size: 15px;
     }
+
+
+    /* ==========================================
+       FAQ
+       ========================================== */
 
     .faq {
         padding: 40px 15px;
@@ -591,6 +646,11 @@ footer .questions {
         font-size: 16px;
         padding: 16px;
     }
+
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
 
     .footer {
         grid-template-columns: 1fr;

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Game Verse</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #0f172a; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .card { background-color: #1e293b; border-radius: 10px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .card h2 { text-align: center; color: #38bdf8; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #94a3b8; }
+        .form-group input { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; }
+        .btn { width: 100%; padding: 10px; border: none; border-radius: 5px; background: #10b981; color: white; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: #059669; }
+        .footer { text-align: center; margin-top: 15px; font-size: 14px; color: #94a3b8; }
+        .footer a { color: #38bdf8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Create Account</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="footer">
+            Already registered? <a href="{% url 'login' %}">Login</a>
+        </div>
+    </div>
+</body>
+</html>

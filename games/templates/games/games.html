@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVerse - Games</title>
+    <link rel="stylesheet" href="{% static 'games/games.css' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img width="100" src="{% static 'main/logo.png' %}" alt="">
+        </div>
+        <nav>
+            <a href="{% url 'index' %}">Back</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Middle Search Bar -->
+        <section class="search-box">
+            <form method="GET" action="" class="search-form">
+                <input 
+                    type="text" 
+                    name="q" 
+                    id="searchInput"
+                    placeholder="Search game name or category..." 
+                    value="{{ query }}"
+                >
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <!-- Games Grid -->
+        <section class="games-container" id="gamesGrid">
+            {% if games %}
+                {% for game in games %}
+                    <div class="game-card">
+                        <img src="{% static 'games/' %}{{ game.logo }}" alt="{{ game.name }}" class="game-logo">
+                        <h3 class="game-name">{{ game.name }}</h3>
+                        <p class="game-category"><strong>Category:</strong> {{ game.category }}</p>
+                        <p class="game-size"><strong>Size:</strong> {{ game.size }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-data">No games found matching your search.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <script src="{% static 'games/games.js' %}"></script>
+</body>
+</html>

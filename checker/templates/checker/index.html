@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>GameVerse | BGMI Compatibility Checker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Figtree:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="{% static 'checker/style.css' %}">
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <div class="brand">
+        <span class="mark" aria-hidden="true">GV</span>
+        <span class="brand-name">GameVerse</span>
+    </div>
+    <h1>Find the BGMI version your phone can actually run.</h1>
+    <p class="lead">Pick your phone, or type in your AnTuTu v10 score. GameVerse matches it to the newest BGMI version that holds its target frame rate.</p>
+  </div>
+</div>
+
+<main class="wrap layout">
+  <section class="panel checker" aria-label="Compatibility checker">
+    <!-- Tabs Required by app.js -->
+    <div class="tabs" role="tablist" aria-label="Check mode">
+      <button class="tab" role="tab" id="tab-device" aria-controls="pane-device" aria-selected="true">Pick your phone</button>
+      <button class="tab" role="tab" id="tab-score" aria-controls="pane-score" aria-selected="false" tabindex="-1">Enter AnTuTu score</button>
+    </div>
+
+    <!-- Phone Selection Form -->
+    <form class="pane" id="pane-device" role="tabpanel" aria-labelledby="tab-device" novalidate>
+      <label for="brand">Brand</label>
+      <select id="brand" required>
+        <option value="">Loading brands...</option>
+      </select>
+
+      <label for="model">Phone model</label>
+      <select id="model" required disabled>
+        <option value="">Choose a brand first</option>
+      </select>
+
+      <p class="error" id="err-device" role="alert" hidden></p>
+      <button class="btn primary block" type="submit">Check compatibility</button>
+    </form>
+
+    <!-- AnTuTu Score Form -->
+    <form class="pane" id="pane-score" role="tabpanel" aria-labelledby="tab-score" hidden novalidate>
+      <label for="score">AnTuTu v10 score</label>
+      <input id="score" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 650000" aria-describedby="score-help">
+      <p class="help" id="score-help">Run the AnTuTu Benchmark app (v10) and enter the total score. Commas are fine.</p>
+
+      <p class="error" id="err-score" role="alert" hidden></p>
+      <button class="btn primary block" type="submit">Check compatibility</button>
+    </form>
+  </section>
+
+  <!-- Dynamic Results Area -->
+  <section class="panel results" id="results" aria-live="polite" aria-label="Result"></section>
+</main>
+
+<footer class="wrap foot">
+  <p>Scores are approximate AnTuTu v10 lab results. Android and iOS use different graphics APIs, so treat them as a general guide to raw performance.</p>
+</footer>
+
+<p class="toast" id="toast" role="status" hidden></p>
+<script src="{% static 'checker/app.js' %}"></script>
+</body>
+</html>
